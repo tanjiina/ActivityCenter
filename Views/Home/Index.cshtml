@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style> 
+    .container{
+        margin: 0 auto;
+        margin-top: 100px;
+    }
+</style>
+
+
+<div class = "container">
+    <!-- <h1 class = "display-2">Welcome</h1> -->
+    <div class="row">
+        <div class="col-sm-6">
+            <partial name="_Register.cshtml" />
+        </div>
+        <div class="col-sm-6">
+            <partial name="_Login.cshtml" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+@{
+    ViewData["Title"] = "New Activity";
+}
+@model Party
+<style>
+    nav{
+        padding: 0.5rem;
+        background: #333;
+        color: white;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    nav> h3, h4, a{
+        vertical-align: top;
+        display:inline-block;
+    }
+    .home{
+        line-height: 60px;
+        margin-left: 440px; 
+    }
+    a{
+        line-height: 60px;
+        margin-left: 50px; 
+    }
+    span{
+        color:red;
+    }
+</style>
+<nav>
+    <h3 class = "display-4">Dojo Activity Center</h3>
+    <a class = "home" href="/dashboard">Home</a>
+    <a href="/logout">Logout</a>
+</nav>
+
+<h2>Create an Activity</h2>
+<form action="/create" method="post">
+
+    <div class="form-group row">
+
+        <div class="col-md-6">
+            <label>Title: </label>
+            <input type="text" name="Title" placeholder="Title" class="form-control" />
+            <span asp-validation-for="Title"></span>
+        </div>
+
+
+        <div class="col-md-6">
+            <label>Time: </label>
+            <input type="time" name="Time" placeholder="Time" class="form-control" />
+            <span asp-validation-for="Time"></span>
+        </div>
+
+
+    </div>
+    <div class="form-group row">
+
+        <div class="col-md-6">
+            <label>Date: </label>
+            <input type="date" name="Date" class="form-control" />
+            <span asp-validation-for="Date"></span>
+        </div>
+
+
+        <div class="col-md-3">
+            <label>Duration: </label>
+            <input type="number" name="Duration" class="form-control" />
+        </div>
+
+
+        <div class="col-md-3">
+            <label>Duration:</label>
+            <select class="form-control" name = "DurationType">
+                <option value = "minutes">Minute(s)</option>
+                <option value = "hours">Hour(s)</option>
+                <option value = "days">Day(s)</option>
+            </select>
+            <span asp-validation-for="DurationType"></span>
+        </div>
+
+
+    </div>
+    <div class="form-group row">
+
+        <div class="col-md-12">
+            <label>Description</label>
+            <textarea type="text" name="Description" rows="4" class="form-control"></textarea>
+            <span asp-validation-for="Description"></span>
+        </div>
+
+    </div>
+
+    <div class = "text-right">
+        <input type="submit" value="Create Activity" class="btn btn-outline-primary"/>
+    </div>
+</form>
